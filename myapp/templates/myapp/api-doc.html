@@ -1,0 +1,35 @@
+{% extends 'myapp/base.html' %}
+{% block title %} API Docs {% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-11 offset-md-1">
+      <div class="box">
+        <h3>How to access Weather API</h3>
+        <h5><code>{{url}}weather/api?lat={Latitude}&lon={Longitude}&detailing-type={minutely}</code></h5> <hr>
+        <div class="row">
+          <div class="col-4"> <h5><code>detailing-type</code></h5></div>
+          <div class="col-2"> 
+            <h5>
+              <code>minutely</code><br> 
+              <code>hourly</code> <br>
+              <code>daily</code> <br>
+            </h5>
+          </div>
+          <div class="col-4 offset-1">
+            Minutely forecast for an Hour <br>
+            Hourly forecast for 48 hours <br>
+            Daily forecast for 8 days 
+          </div>
+        </div>
+
+        <br>
+        <h5>Example:</h5>
+        Minutely: <a href="/weather/api?lat=30.732962&lon=76.779175&detailing-type=minutely" target="_blank">{{url}}weather/api?lat=30.732962&lon=76.779175&detailing-type=minutely</a> <br><br>
+        Hourly: <a href="/weather/api?lat=30.732962&lon=76.779175&detailing-type=hourly" target="_blank">{{url}}weather/api?lat=30.732962&lon=76.779175&detailing-type=hourly</a> <br><br>
+        Daily: <a href="/weather/api?lat=30.732962&lon=76.779175&detailing-type=daily" target="_blank">{{url}}weather/api?lat=30.732962&lon=76.779175&detailing-type=daily</a><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

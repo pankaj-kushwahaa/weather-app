@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+<style>
+  .box {
+    background-color: white;
+    padding: 10px;
+  }
+  .hour-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+<div class="container mt-3">
+  <div class="row">
+    <div class="text-center col-md-4 offset-md-4">
+      <div class="box mx-2 my-2">
+        <h3 class="text-center">Forecast for 48 hours</h3> <hr>
+        <div class="show-hour">
+          <div class="hour-item"><h4>Time </h4></div>
+          <div class="hour-item"><h4>Temperature</h4></div>
+          <div class="hour-item"><h4>Pressure</h4></div>
+          <div class="hour-item"><h4>Humidity</h4></div>
+          <div class="hour-item"><h4>Wind Speed</h4></div>
+          <div class="hour-item"><h4>Weather</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3" >
+  <div class="row">
+
+    {% for hour in hours %}
+    <div class="box col mx-2 my-2">
+      <div class="show-hour">
+        <div class="hour-item"><h6> {{hour.time}} </h6></div>
+        <div class="hour-item"><h6>{{hour.temperature}} °C</h6></div>
+        <div class="hour-item"><h6>{{hour.pressure}} hPa</h6></div>
+        <div class="hour-item"><h6>{{hour.humidity}}%</h6></div>
+        <div class="hour-item"><h6>{{hour.windspeed}} m/s</h6></div>
+        <div class="hour-item"><h6>{{hour.weather}}</h6></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br><br><br><br>
+{% endblock content %}

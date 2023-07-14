@@ -1,0 +1,45 @@
+{% extends 'myapp/base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+<div class="container mt-3" >
+  <div class="row">
+    <div class="text-center col-md-4 offset-md-4">
+      <div class="box">
+        <h4 class="text-center">Forecast for 7 Days</h4> <hr>
+        <div class="show-hour">
+          <div class="hour-item"><h5>Date </h5></div>
+          <div class="hour-item"><h5>Max/Min Temperature </h5></div>
+          <div class="hour-item"><h5>Pressure</h5></div>
+          <div class="hour-item"><h5>Humidity</h5></div>
+          <div class="hour-item"><h5>Wind Speed</h5></div>
+          <div class="hour-item"><h5>Weather</h5></div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <div class="row">
+
+    {% for day in days %}
+    <div class="box col-md-3 ms-1 my-2">
+      <div class="show-hour">
+        <!-- <div class="hour-item"><h6>10:12 </h6></div>
+        <div class="hour-item"><h6>25 °C</h6></div>
+        <div class="hour-item"><h6>44 mmHg</h6></div>
+        <div class="hour-item"><h6>15%</h6></div>
+        <div class="hour-item"><h6>4 m/s</h6></div>
+        <div class="hour-item"><h6>Cloudy</h6></div> -->
+        
+        <div class="hour-item"><h6> {{day.time}} </h6></div>
+        <div class="hour-item"><h6>{{day.maxtemperature}}/{{day.mintemperature}} °C</h6></div>
+        <div class="hour-item"><h6>{{day.pressure}} hPa</h6></div>
+        <div class="hour-item"><h6>{{day.humidity}}%</h6></div>
+        <div class="hour-item"><h6>{{day.windspeed}} m/s</h6></div>
+        <div class="hour-item"><h6>{{day.weather}}</h6></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br><br><br><br>
+{% endblock content %}

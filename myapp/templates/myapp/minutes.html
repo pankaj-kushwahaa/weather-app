@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{% block title %} {% endblock %}
+{% block content %}
+<div class="container mt-3" >
+  <div class="row">
+    <div class="text-center col-md-4 offset-md-4">
+      <div class="box">
+        <h4 class="text-center">Forecast for 1 Hour</h4> <hr>
+        <div class="show-hour">
+          <div class="hour-item"><h5>Time</h5></div>
+          <div class="hour-item"><h5>Precipitate </h5></div>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="container mt-3" >
+  <div class="row" class="mt-4">
+    {% for minute in minutes %}
+    <div class="box col mx-1 my-1">
+      <div class="show-hour">
+        <div class="hour-item"><h5>{{minute.time|date:"H:i:s"}} </h5></div>
+        <div class="hour-item"><h5>{{minute.precipitate}}</h5></div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<br><br><br><br>
+{% endblock content %}
